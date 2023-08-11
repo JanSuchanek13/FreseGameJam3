@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: "G\xFCrtel"
+    second: {fileID: 2100000, guid: 232f48d97525da245a1be520557732c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: "H\xE4nde"
     second: {fileID: 2100000, guid: dd2bd4a32db829e45a602f6c512d34b2, type: 2}
   - first:
