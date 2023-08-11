@@ -8,18 +8,10 @@ public class WeaponScriptableObject : ScriptableObject
     public int WeaponID;
     public GameObject WeaponPrefab;
     public GameObject BulletPrefab;
-    public enum type
-    {
-        CC,
-        direct,
-        indirect
-    }
-    public enum fireMode
-    {
-        SingleShot,
-        Volley,
-        FullyAutomativ
-    }
+    [Tooltip("0 = CC; 1 = Direct; 2 = Indirect")]
+    public int type;
+    [Tooltip("0 = SingleShot; 1 = Volley; 2 = FullyAutomativ")]
+    public int fireMode;
     public float range;
     public float firingRate;
     public float damage;
