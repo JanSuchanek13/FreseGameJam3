@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour
 {
-    //private WeaponData _weaponData;
+    private WeaponScriptableObject _weaponData;
     private NavMeshAgent _agent;
     private float _walkDuration;
     private bool _isWalking;
@@ -14,9 +14,6 @@ public class AIMovement : MonoBehaviour
     public bool enemySpotted;
     public Transform targetEnemy; // Reference to the target enemy's position
 
-    public WeaponScriptableObject _weaponData;
-
-    // GO weapon.GetComponten<WeaponData>()
     private void Start()
     {
         _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
@@ -29,8 +26,7 @@ public class AIMovement : MonoBehaviour
         if (enemySpotted && targetEnemy != null)
         {
             MoveIntoAttackRange();
-        }
-        else if (!_isWalking)
+        }else if (!_isWalking)
         {
             StartRandomWalking();
         }
