@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 076b941d80381a244a601e2b23e2b66b
+guid: ca5e435d058658a46842a7df6231bdb1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Burgwand_Blank
+    second: {fileID: 2100000, guid: 2ef3f62dcdc59f947bc7b81a9ddc09f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
