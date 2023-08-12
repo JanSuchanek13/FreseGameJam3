@@ -14,7 +14,8 @@ public class PlayerShooting : MonoBehaviour
     private float nextShot1;
     private float nextShot2;
 
-    public bool shootInput;//for Animation
+    public bool shootInputR;//for Animation
+    public bool shootInputL;//for Animation
 
     private void Awake()
     {
@@ -54,7 +55,9 @@ public class PlayerShooting : MonoBehaviour
 
     private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton, float _nextShot)
     {
-        shootInput = playerInput.Player.Shoot1.ReadValue<float>() == 1;
+        //für Animation
+        shootInputR = playerInput.Player.Shoot1.ReadValue<float>() == 1;
+        shootInputL = playerInput.Player.Shoot2.ReadValue<float>() == 1;
 
         switch (_weaponData.fireMode)
         {

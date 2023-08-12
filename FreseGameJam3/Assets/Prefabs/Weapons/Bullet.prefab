@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   weaponData: {fileID: 0}
+  playerBullet: 0
 --- !u!135 &3143383767544234742
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -89,7 +90,6 @@ GameObject:
   - component: {fileID: 3185413663192973288}
   - component: {fileID: 8881123971716144076}
   - component: {fileID: 4503612316463601165}
-  - component: {fileID: 1432537915305839279}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -162,16 +162,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1432537915305839279
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6986015940353135634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

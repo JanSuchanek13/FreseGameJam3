@@ -6,6 +6,9 @@ public class SimpleAnimationController : MonoBehaviour
 {
     private PlayerMovement movement;
     private PlayerShooting shooting;
+    private WeaponHandler weapon;
+    private Animator animatorRWeapon;
+    private Animator animatorLWeapon;
 
     [SerializeField]
     private Animator animatorBody;
@@ -16,16 +19,22 @@ public class SimpleAnimationController : MonoBehaviour
     {
         movement = GetComponent<PlayerMovement>();
         shooting = GetComponent<PlayerShooting>();
+        weapon = GetComponent<WeaponHandler>();
     }
 
     private void Update()
     {
+        animatorRWeapon = weapon.Weapon1.transform.GetChild(0).GetComponent<Animator>();
+        animatorLWeapon = weapon.Weapon2.transform.GetChild(0).GetComponent<Animator>();
+        
         BodyAnimation();
     }
 
     private void BodyAnimation()
     {
         animatorBody.SetFloat("MoveSpeed", movement.moveinput);
-        animatorL_Arm.SetBool("Shoot", shooting.shootInput);
+        animatorL_Arm.SetBool("Shoot", shooting.shootInputR);
+        animatorRWeapon.SetBool("Shoot", shooting.shootInputR);
+        animatorLWeapon.SetBool("Shoot", shooting.shootInputL);
     }
 }
