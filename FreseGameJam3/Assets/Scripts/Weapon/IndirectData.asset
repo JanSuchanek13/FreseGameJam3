@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabName: 
   WeaponID: 0
   WeaponPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
   type: 2
   fireMode: 0
   range: 10
