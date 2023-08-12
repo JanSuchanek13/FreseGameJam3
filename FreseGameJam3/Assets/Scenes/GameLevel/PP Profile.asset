@@ -129,7 +129,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 32.6
   colorFilter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 0.76324385, b: 0.5896226, a: 1}
   hueShift:
     m_OverrideState: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     m_Value: 0.5
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.7
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -199,7 +199,7 @@ MonoBehaviour:
     dimension: 1
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 7
 --- !u!114 &3492784440148149603
 MonoBehaviour:
   m_ObjectHideFlags: 3
