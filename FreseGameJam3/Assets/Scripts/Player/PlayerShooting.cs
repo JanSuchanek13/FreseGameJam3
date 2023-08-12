@@ -11,7 +11,8 @@ public class PlayerShooting : MonoBehaviour
     private WeaponScriptableObject weapon1Data;
     private WeaponScriptableObject weapon2Data;
 
-    private float nextShot;
+    private float nextShot1;
+    private float nextShot2;
 
     private void Awake()
     {
@@ -39,8 +40,8 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         UpdateWeaponData();//das später in WeaponData aufrüfen sobald eine Waffe wechselt
-        ShootingInput(weapon1Data, playerInput.Player.Shoot1);
-        ShootingInput(weapon2Data, playerInput.Player.Shoot2);
+        ShootingInput(weapon1Data, playerInput.Player.Shoot1, nextShot1);
+        ShootingInput(weapon2Data, playerInput.Player.Shoot2, nextShot2);
     }
 
     public void UpdateWeaponData()
@@ -49,17 +50,25 @@ public class PlayerShooting : MonoBehaviour
         weapon2Data = holdingWeapons.Weapon2.GetComponent<WeaponData>().data;
     }
 
-    private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton)
+    private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton, float _nextShot)
     {
         switch (_weaponData.fireMode)
         {
             case 0:
                 if (_shootButton.triggered)
                 {
-                    if(Time.time > nextShot)
+                    if(Time.time > _nextShot)
                     {
-                        nextShot = Time.time + _weaponData.attackSpeed;
-                        Debug.Log(_weaponData.damage);
+                        if(_shootButton == playerInput.Player.Shoot1)
+                        {
+                            nextShot1 = Time.time + _weaponData.attackSpeed;
+                        }
+                        else
+                        {
+                            nextShot2 = Time.time + _weaponData.attackSpeed;
+                        }
+                        
+                        
                         Shoot(_weaponData);
                     }
                     
@@ -91,8 +100,8 @@ public class PlayerShooting : MonoBehaviour
     private void InstantiateBullet(WeaponScriptableObject _weaponData)
     {
         GameObject bullet = Instantiate(_weaponData.BulletPrefab, transform.position, transform.rotation);
-        Debug.Log(transform.position);
         bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range;
         bullet.GetComponent<Bullet>().weaponData = _weaponData;
+        bullet.GetComponent<Bullet>().playerBullet = true;
     }
 }
