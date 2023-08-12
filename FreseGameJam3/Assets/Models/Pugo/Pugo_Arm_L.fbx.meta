@@ -1,8 +1,20 @@
 fileFormatVersion: 2
-guid: 5c0984ec289583e488d9382c3064a61b
+guid: a1f0685a0e7f61d439cb9b4a9ad27bc7
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -7020641040521942615
+    second: L_Arm|L_Die
+  - first:
+      74: -4588275046385598435
+    second: L_Arm|L_Idle
+  - first:
+      74: -6903417187324911242
+    second: L_Arm|L_Shoot
+  - first:
+      74: 4483552776620091920
+    second: L_Arm|L_Tpose
   externalObjects: {}
   materials:
     materialImportMode: 2
