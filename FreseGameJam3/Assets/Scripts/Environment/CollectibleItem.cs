@@ -14,4 +14,9 @@ public class CollectibleItem : MonoBehaviour
     {
         Debug.Log("collectible item initialized.");
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("hit");
+    }
 }
