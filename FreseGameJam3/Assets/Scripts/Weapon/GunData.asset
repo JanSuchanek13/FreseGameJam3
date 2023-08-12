@@ -24,7 +24,7 @@ MonoBehaviour:
   bulletSpeed: 1
   recoil: 1
   explosive: 0
-  aimAccuracy: 0.5
+  aimAccuracy: 0.8
   layerMask:
     serializedVersion: 2
     m_Bits: 64

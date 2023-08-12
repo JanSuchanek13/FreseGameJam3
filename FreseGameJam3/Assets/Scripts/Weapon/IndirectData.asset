@@ -19,12 +19,12 @@ MonoBehaviour:
   type: 2
   fireMode: 0
   range: 10
-  attackSpeed: 0
+  attackSpeed: 3
   damage: 5
   bulletSpeed: 1
   recoil: 5
   explosive: 1
-  aimAccuracy: 0
+  aimAccuracy: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 128
