@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6678c68c9455c2a49a672db6a3054261
+guid: 1815e42f1e0064f4eb37b33c050eddb3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -10,17 +10,14 @@ ModelImporter:
       74: 8615995518712804992
     second: Armature|Heart_Idle
   - first:
+      74: -1194830429438152153
+    second: Armature|PickleAction
+  - first:
       74: -7632097627531569091
-    second: Watergun_Idle
+    second: Armature|Watergun_Idle
   - first:
       74: 6242491532955735065
     second: Armature|Watergun_Shoot
-  - first:
-      74: 1761628963496521933
-    second: Armature|Watergun_Shoot.001
-  - first:
-      74: -7256772916415617279
-    second: Watergun_Shoot
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -61,7 +58,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Watergun_Idle
+      name: Armature|Watergun_Idle
       takeName: Armature|Watergun_Idle
       internalID: 0
       firstFrame: 0
@@ -90,7 +87,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Watergun_Shoot
+      name: Armature|Watergun_Shoot
       takeName: Armature|Watergun_Shoot
       internalID: 0
       firstFrame: 0
