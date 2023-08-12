@@ -19,4 +19,5 @@ public class WeaponScriptableObject : ScriptableObject
     public float recoil;
     public bool explosive;
     public float aimAccuracy;
+    public LayerMask layerMask;
 }
