@@ -1,30 +1,29 @@
 fileFormatVersion: 2
-guid: 14c3ddaaa10ba5b45805ff263b69afc8
+guid: 46366997c82648747b8a44e1d5c8cdca
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -9072798795364441379
-    second: Bazooka|Idle
+      74: 5423273166205838119
+    second: Heart|Cylinder.005Action
   - first:
-      74: -3365056663832615366
-    second: Bazooka|Shoot
+      74: 6272258800808790206
+    second: Heart|Cylinder.006Action
+  - first:
+      74: -8896163709196405067
+    second: Heart|Heart_Beating
+  - first:
+      74: 2634121892912515864
+    second: Heart|Heart_Idle
+  - first:
+      74: 3795101108264407654
+    second: Heart|HeartAction
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: dd2bd4a32db829e45a602f6c512d34b2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: White
     second: {fileID: 2100000, guid: dd2bd4a32db829e45a602f6c512d34b2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: black
-    second: {fileID: 2100000, guid: 232f48d97525da245a1be520557732c5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -54,11 +53,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Bazooka|Idle
-      takeName: Armature_Bazooka|Idle
+      name: Heart|Heart_Beating
+      takeName: Heart|Heart_Beating
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -83,11 +82,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Bazooka|Shoot
-      takeName: Armature_Bazooka|Shoot
+      name: Heart|Heart_Idle
+      takeName: Heart|Heart_Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
