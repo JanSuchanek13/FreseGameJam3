@@ -6,20 +6,21 @@ using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour
 {
-    private WeaponScriptableObject _weaponData;
+    //private WeaponScriptableObject _weaponData;
     private NavMeshAgent _agent;
     private float _walkDuration;
     private bool _isWalking;
-    private LayerMask _firingLayer;
+    //private LayerMask _firingLayer;
 
+    public bool inAttackRange = false;
     public bool enemySpotted;
     //public Transform targetEnemy; // Reference to the target enemy's position
     public Vector3 targetEnemyPosition; // Reference to the target enemy's position
 
     private void Start()
     {
-        _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
-        _firingLayer = _weaponData.layerMask;
+        //_weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
+        //_firingLayer = _weaponData.layerMask;
 
         _agent = GetComponent<NavMeshAgent>();
         StartRandomWalking();
@@ -27,15 +28,38 @@ public class AIMovement : MonoBehaviour
 
     private void Update()
     {
-        if (enemySpotted && targetEnemyPosition != null)
+        //if (enemySpotted && targetEnemyPosition != null)
+        if (enemySpotted)
         {
-            MoveIntoAttackRange();
-        }else if (!_isWalking)
+            if (!inAttackRange)
+            {
+                MoveIntoAttackRange();
+            }else
+            {
+                StopMoving();
+                Attack();
+            }
+        }else if (!enemySpotted && !_isWalking)
         {
             StartRandomWalking();
         }
     }
 
+    void StopMoving()
+    {
+        _agent.SetDestination(transform.position);
+    }
+
+    void Attack()
+    {
+        //attk
+    }
+    private void MoveIntoAttackRange()
+    {
+        _agent.SetDestination(targetEnemyPosition);
+    }
+
+    /*
     private void MoveIntoAttackRange()
     {
         float distanceToTarget = Vector3.Distance(transform.position, targetEnemyPosition);
@@ -75,7 +99,7 @@ public class AIMovement : MonoBehaviour
                 break;
         }
     }
-
+    
     private bool HasClearLineOfSight()
     {
         RaycastHit hit;
@@ -103,7 +127,7 @@ public class AIMovement : MonoBehaviour
 
         // current weapon can reach/see the target 
         return true;
-    }
+    }*/
 
     /*private bool HasClearLineOfSight()
     {

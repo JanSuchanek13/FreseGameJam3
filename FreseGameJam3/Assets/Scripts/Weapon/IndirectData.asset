@@ -17,7 +17,7 @@ MonoBehaviour:
   WeaponPrefab: {fileID: 0}
   BulletPrefab: {fileID: 0}
   type: 2
-  fireMode: 1
+  fireMode: 0
   range: 10
   attackSpeed: 0
   damage: 5

@@ -10,14 +10,32 @@ public class EnemyDetection : MonoBehaviour
 
     private AIMovement _aiMovement;
 
+    // these vars are used to handle AI's interaction with a spotted enemy (player):
+    private bool _enemySpotted = false;
+    private Transform _spottedEnemyTransform;
+    private WeaponScriptableObject _weaponData;
+    private LayerMask _firingLayer;
+
     private void Awake()
     {
+        _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
+        _firingLayer = _weaponData.layerMask;
+
         _aiMovement = GetComponent<AIMovement>();
     }
 
     private void Update()
     {
-        ScanForPlayer();
+        if (!_enemySpotted)
+        {
+            ScanForPlayer();
+        }else
+        {
+            // white line = enemy in spotting range and visible:
+            Debug.DrawLine((transform.position + Vector3.up * 1.2f), _spottedEnemyTransform.position, Color.white);
+
+            CheckForLineOfAttack();
+        }
     }
 
     private void ScanForPlayer()
@@ -27,48 +45,89 @@ public class EnemyDetection : MonoBehaviour
         {
             if (hit.CompareTag("Player") && CanSeePlayer(hit.transform))
             {
-                // blue line means an enemy has been spotted:
-                Debug.DrawLine(transform.position, hit.transform.position, Color.blue);
+                // store the enemy that has been spotted & never forget:
+                _enemySpotted = true;
+                _spottedEnemyTransform = hit.transform;
 
+                // tell the movement script that an enemy has been spotted and hand over position:
                 _aiMovement.enemySpotted = true;
                 _aiMovement.targetEnemyPosition = hit.transform.position;
                 return;
             }
         }
-
-        // reset detection if the player is not in the sphere:
-        //_aiMovement.enemySpotted = false;
-        //_aiMovement.targetEnemyPosition = Vector3.zero;
     }
-
     private bool CanSeePlayer(Transform _heardSomethingOverThere)
     {
         RaycastHit hit;
         Vector3 _rayOrigin = transform.position + Vector3.up * 1.1f;
         Vector3 _directionToTarget = (_heardSomethingOverThere.position - _rayOrigin).normalized;
 
-
         if (Physics.Raycast(_rayOrigin, _directionToTarget, out hit, Mathf.Infinity, detectionLayer))
         {
-            Debug.DrawLine(transform.position, _heardSomethingOverThere.position, Color.black);
-
-            // check if the raycast hit the player
+            // check if a raycast can see/hit the player:
             if (hit.transform.gameObject.CompareTag("Player"))
             {
-                Debug.DrawLine(_rayOrigin, _heardSomethingOverThere.position, Color.green);
-
                 return true;
-            }else
-            {
-                Debug.Log("ray hit " + hit.collider.name);
             }
         }
 
-        Debug.DrawLine(_rayOrigin, _heardSomethingOverThere.position, Color.red);
+        // black line = enemy in spotting range, but not seen:
+        Debug.DrawLine((transform.position + Vector3.up * 1.2f), _heardSomethingOverThere.position, Color.black);
         return false;
     }
 
+    /// <summary>
+    /// Once spotted stop checking if an enemy is detected, but instead check if a line of attack can be established.
+    /// If not, move into range/LOS.
+    /// </summary>
+    void CheckForLineOfAttack()
+    {
+        if (HasLineOfAttack() && IsInRange()) 
+        {
+            Debug.DrawLine(transform.position, _spottedEnemyTransform.position, Color.green);
+            _aiMovement.inAttackRange = true;
+            GetComponent<AICombat>().inRange = true;
+        }else
+        {
+            Debug.DrawLine(transform.position, _spottedEnemyTransform.position, Color.red);
+            _aiMovement.inAttackRange = false;
+            GetComponent<AICombat>().inRange = false;
 
+            _aiMovement.targetEnemyPosition = _spottedEnemyTransform.position;
+        }
+    }
+
+    private bool HasLineOfAttack()
+    {
+        RaycastHit hit;
+
+        // check for intervening terrain:
+        if (Physics.Raycast(transform.position, (_spottedEnemyTransform.position - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
+        {
+            return false;
+        }
+
+        return true;
+    }
+    private bool IsInRange()
+    {
+        float _distanceToEnemy = Vector3.Distance(transform.position, _spottedEnemyTransform.position);
+
+        if (_distanceToEnemy <= _weaponData.range)
+        {
+            Debug.DrawLine(transform.position, _spottedEnemyTransform.position, Color.green);
+            return true;
+        }
+
+        return false;
+    }
+
+    // reset detection if the player is not in the sphere:
+    void LostEnemyContact()
+    {
+        //_aiMovement.enemySpotted = false;
+        //_aiMovement.targetEnemyPosition = Vector3.zero;
+    }
 
     // Use Unity's Gizmos to draw the wireframe in the editor
     private void OnDrawGizmos()

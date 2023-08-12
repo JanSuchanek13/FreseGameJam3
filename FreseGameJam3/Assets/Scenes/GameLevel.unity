@@ -823,7 +823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &885169719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7538698644893423484, guid: 5d7877fd536f598458213984fdaca1d8, type: 3}
+  inRange: 0
 --- !u!114 &885169721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043e36feaab1c5945815f6747fc7443f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAttackRange: 0
   enemySpotted: 0
   targetEnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &885169723
@@ -1015,7 +1017,7 @@ GameObject:
   - component: {fileID: 1084500114}
   - component: {fileID: 1084500113}
   m_Layer: 6
-  m_Name: thin Wall obstacle
+  m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -1142,6 +1144,7 @@ GameObject:
   - component: {fileID: 1307774478}
   - component: {fileID: 1307774477}
   - component: {fileID: 1307774476}
+  - component: {fileID: 1307774480}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1227,6 +1230,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307774480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307774475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cba17def322d704eae50fdb2142208c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314287840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7538698644893423484, guid: 5f139f1f155019b4c9f20d1e9975231e, type: 3}
+  inRange: 0
 --- !u!114 &1623218386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,6 +1481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043e36feaab1c5945815f6747fc7443f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAttackRange: 0
   enemySpotted: 0
   targetEnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &1623218388
@@ -1550,7 +1567,7 @@ GameObject:
   - component: {fileID: 1698977113}
   - component: {fileID: 1698977112}
   m_Layer: 7
-  m_Name: thin Wall obstacle (1)
+  m_Name: "S\xE4ule"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -1847,7 +1864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &2021389125
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1899,6 +1916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043e36feaab1c5945815f6747fc7443f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAttackRange: 0
   enemySpotted: 0
   targetEnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2021389128
@@ -1930,6 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7538698644893423484, guid: dbe1d550733de4a4aaf41231d4b465d3, type: 3}
+  inRange: 0
 --- !u!114 &2021389130
 MonoBehaviour:
   m_ObjectHideFlags: 0
