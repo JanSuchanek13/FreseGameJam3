@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+    [SerializeField]
     private float lifePoints = 2;
 
     public void DecreaseLifePoints(float _damage)
@@ -19,4 +20,6 @@ public class HealthSystem : MonoBehaviour
             //play Death Sound
         }
     }
+
+    
 }
