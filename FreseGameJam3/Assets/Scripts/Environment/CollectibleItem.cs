@@ -6,6 +6,8 @@ public class CollectibleItem : MonoBehaviour
 {
     [Tooltip("If this is true, this collectible is a healthpoint.")]
     public bool health = false;
+    [Tooltip("Amount of LifePoints to gain")]
+    public int lifePoints = 1;
 
     [Tooltip("0 = Waterpistol, 1 = Pickle Gun, 2 = Bazooka")]
     public int weaponType = 0;
@@ -17,6 +19,13 @@ public class CollectibleItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit");
+        if (other.CompareTag("Player"))
+        {
+            if (health)
+            {
+                other.transform.parent.GetComponent<HealthSystem>().IncreaseLifePoints(lifePoints);
+                Destroy(gameObject);
+            }
+        }
     }
 }
