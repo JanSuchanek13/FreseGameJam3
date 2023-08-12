@@ -9,8 +9,8 @@ public class CollectibleItem : MonoBehaviour
     [Tooltip("Amount of LifePoints to gain")]
     public int lifePoints = 1;
 
-    [Tooltip("0 = Waterpistol, 1 = Pickle Gun, 2 = Bazooka")]
-    public int weaponType = 0;
+    [Tooltip("")]
+    public WeaponScriptableObject weaponData;
     
     void Start()
     {
@@ -24,6 +24,11 @@ public class CollectibleItem : MonoBehaviour
             if (health)
             {
                 other.transform.parent.GetComponent<HealthSystem>().IncreaseLifePoints(lifePoints);
+                Destroy(gameObject);
+            }
+            if(weaponData != null)
+            {
+                other.transform.parent.GetComponent<WeaponHandler>();
                 Destroy(gameObject);
             }
         }

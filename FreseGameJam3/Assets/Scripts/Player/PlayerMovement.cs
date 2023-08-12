@@ -53,10 +53,6 @@ public class PlayerMovement : MonoBehaviour
         // Verwende den CharacterController für die Bewegung
         controller.Move(inputMovement * Time.deltaTime * moveSpeed);
 
-        // Setze die Y-Bewegung auf 0, um die vertikale Bewegung zu blockieren
-        Vector3 newPosition = controller.transform.position;
-        newPosition.y = 0; // Setze die Y-Komponente auf 0
-        controller.transform.position = newPosition;
         //inputMovement = new Vector3(playerInput.Player.Movement.ReadValue<Vector2>().x, 0, playerInput.Player.Movement.ReadValue<Vector2>().y);
         //transform.Translate(inputMovement * Time.deltaTime * moveSpeed, Space.World);
     }
