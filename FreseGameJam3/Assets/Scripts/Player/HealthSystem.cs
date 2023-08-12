@@ -6,6 +6,8 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField]
     private float lifePoints = 2;
+    [SerializeField]
+    private Renderer renderer;
 
     public void DecreaseLifePoints(float _damage)
     {
@@ -14,7 +16,8 @@ public class HealthSystem : MonoBehaviour
             //play damage Sound
             lifePoints -= _damage;
             Debug.Log(lifePoints);
-            //blincken lassen
+            StartCoroutine("Flashing");
+            
         }
         else
         {
@@ -31,5 +34,18 @@ public class HealthSystem : MonoBehaviour
     {
         //play Death Sound
         //play Die Animation
+        Destroy(gameObject);
+    }
+
+    IEnumerator Flashing()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            renderer.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            renderer.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
     }
 }

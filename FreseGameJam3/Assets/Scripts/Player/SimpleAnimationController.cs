@@ -33,7 +33,7 @@ public class SimpleAnimationController : MonoBehaviour
     private void BodyAnimation()
     {
         animatorBody.SetFloat("MoveSpeed", movement.moveinput);
-        animatorL_Arm.SetBool("Shoot", shooting.shootInputR);
+        animatorL_Arm.SetBool("Shoot", shooting.shootInputL);
         animatorRWeapon.SetBool("Shoot", shooting.shootInputR);
         animatorLWeapon.SetBool("Shoot", shooting.shootInputL);
     }

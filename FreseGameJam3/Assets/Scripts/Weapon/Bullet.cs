@@ -43,13 +43,13 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player") && !playerBullet)
         {
             Debug.Log("hit");
-            other.GetComponent<HealthSystem>().DecreaseLifePoints(weaponData.damage);
+            other.transform.parent.GetComponent<HealthSystem>().DecreaseLifePoints(weaponData.damage);
             Destroy();
         }
         if (other.CompareTag("Enemy") && playerBullet)
         {
             Debug.Log("hit");
-            other.GetComponent<HealthSystem>().DecreaseLifePoints(weaponData.damage);
+            other.transform.parent.transform.parent.GetComponent<HealthSystem>().DecreaseLifePoints(weaponData.damage);
             Destroy();
         }
     }
