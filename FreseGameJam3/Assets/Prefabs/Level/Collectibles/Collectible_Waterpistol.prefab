@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2223256007269935867}
   - component: {fileID: 2223256007269935864}
   - component: {fileID: 2223256007269935865}
+  - component: {fileID: 2723466713979580212}
   m_Layer: 0
   m_Name: Collectible_Waterpistol
   m_TagString: Collectible
@@ -81,7 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  weaponType: 0
+  lifePoints: 1
+  weaponData: {fileID: 11400000, guid: 230571a73f908094ebcbf82bfee5e0c4, type: 2}
 --- !u!114 &2223256007269935864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +118,22 @@ MonoBehaviour:
   maxRotationRight: -100
   _rotatorObject: {fileID: 1304916200831828240}
   _rotationPointTransform: {fileID: 0}
+--- !u!54 &2723466713979580212
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223256007269935846}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2223256007546869570
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,10 +29,10 @@ public class SimpleAnimationController : MonoBehaviour
         animatorRWeapon = weapon.Weapon1.transform.GetChild(0).GetComponent<Animator>();
         animatorLWeapon = weapon.Weapon2.transform.GetChild(0).GetComponent<Animator>();
         
-        BodyAnimation();
+        Animation();
     }
 
-    private void BodyAnimation()
+    private void Animation()
     {
         animatorBody.SetFloat("MoveSpeed", movement.moveinput);
         animatorL_Arm.SetBool("Shoot", shooting.shootInputL);

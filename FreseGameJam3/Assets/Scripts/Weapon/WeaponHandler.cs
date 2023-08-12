@@ -21,13 +21,13 @@ public class WeaponHandler : MonoBehaviour
     {
         ThrowOutWeapon(Weapon2);
         Weapon2 = Weapon1;
-        Weapon1 = _newWeapon;
+        Weapon1 = Instantiate(_newWeapon, transform.position, transform.rotation); //_newWeapon;
         SetWeaponInHand();
     }
 
     private void ThrowOutWeapon(GameObject weapon)
     {
-
+        Destroy(weapon);//sollte später Waffe auswerfen
     }
 
     private void SetWeaponInHand()

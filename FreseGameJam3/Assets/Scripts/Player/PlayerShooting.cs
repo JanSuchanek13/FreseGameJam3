@@ -55,9 +55,22 @@ public class PlayerShooting : MonoBehaviour
 
     private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton, float _nextShot)
     {
+        shootInputR = false;
+        shootInputL = false;
         //für Animation
+        if (Time.time > nextShot1)
+        {
+            shootInputR = playerInput.Player.Shoot1.ReadValue<float>() == 1;
+        }
+        if (Time.time > nextShot2)
+        {
+            shootInputL = playerInput.Player.Shoot2.ReadValue<float>() == 1;
+        }
+        /*
         shootInputR = playerInput.Player.Shoot1.ReadValue<float>() == 1;
         shootInputL = playerInput.Player.Shoot2.ReadValue<float>() == 1;
+         */
+
 
         switch (_weaponData.fireMode)
         {
