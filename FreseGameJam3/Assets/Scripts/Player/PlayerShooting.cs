@@ -39,8 +39,8 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         UpdateWeaponData();//das später in WeaponData aufrüfen sobald eine Waffe wechselt
-        ShootingManager();
-        
+        ShootingInput(weapon1Data, playerInput.Player.Shoot1);
+        ShootingInput(weapon2Data, playerInput.Player.Shoot2);
     }
 
     public void UpdateWeaponData()
@@ -49,22 +49,50 @@ public class PlayerShooting : MonoBehaviour
         weapon2Data = holdingWeapons.Weapon2.GetComponent<WeaponData>().data;
     }
 
-    private void ShootingManager()
+    private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton)
     {
-        switch (weapon1Data.fireMode)
+        switch (_weaponData.fireMode)
         {
             case 0:
-                if (playerInput.Player.Shoot.triggered)
+                if (_shootButton.triggered)
                 {
                     if(Time.time > nextShot)
                     {
-                        nextShot = Time.time + weapon1Data.firingRate;
-                        Debug.Log(holdingWeapons.Weapon1.GetComponent<WeaponData>().data.damage);
+                        nextShot = Time.time + _weaponData.attackSpeed;
+                        Debug.Log(_weaponData.damage);
+                        Shoot(_weaponData);
                     }
                     
                 }
                 break;
 
         }
+    }
+
+    private void Shoot(WeaponScriptableObject _weaponData)
+    {
+        //play Sound
+        //play Effect
+        //play Animation
+        switch (_weaponData.type)
+        {
+            case 0:
+                break;
+
+            case 1:
+
+                InstantiateBullet(_weaponData);
+                break;
+
+        }
+        
+    }
+
+    private void InstantiateBullet(WeaponScriptableObject _weaponData)
+    {
+        GameObject bullet = Instantiate(_weaponData.BulletPrefab, transform.position, transform.rotation);
+        Debug.Log(transform.position);
+        bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range;
+        bullet.GetComponent<Bullet>().weaponData = _weaponData;
     }
 }

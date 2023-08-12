@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Gun
   WeaponID: 1
-  WeaponPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 0}
+  WeaponPrefab: {fileID: 7538698644893423484, guid: 5f139f1f155019b4c9f20d1e9975231e, type: 3}
+  BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
+  type: 1
+  fireMode: 0
   range: 10
   firingRate: 1
   damage: 1

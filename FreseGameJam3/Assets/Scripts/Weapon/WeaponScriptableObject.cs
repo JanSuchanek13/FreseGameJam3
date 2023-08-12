@@ -13,7 +13,7 @@ public class WeaponScriptableObject : ScriptableObject
     [Tooltip("0 = SingleShot; 1 = Volley; 2 = FullyAutomativ")]
     public int fireMode;
     public float range;
-    public float firingRate;
+    public float attackSpeed;
     public float damage;
     public float bulletSpeed;
     public float recoil;
