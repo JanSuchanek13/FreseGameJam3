@@ -19,12 +19,14 @@ MonoBehaviour:
   type: 1
   fireMode: 0
   range: 7.5
-  attackSpeed: 1
+  attackSpeed: 0.5
   damage: 1
   bulletSpeed: 1
   recoil: 1
   explosive: 0
   aimAccuracy: 0.8
+  burstBullets: 0
+  burstDuration: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64

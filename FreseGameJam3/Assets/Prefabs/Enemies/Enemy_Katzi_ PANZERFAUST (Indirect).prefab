@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043e36feaab1c5945815f6747fc7443f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inAttackRange: 0
+  canAttack: 0
   enemySpotted: 0
   targetEnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8209118881315777068
@@ -323,4 +323,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cba17def322d704eae50fdb2142208c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifePoints: 5
+  lifePoints: 2
+  renderer: {fileID: 0}
