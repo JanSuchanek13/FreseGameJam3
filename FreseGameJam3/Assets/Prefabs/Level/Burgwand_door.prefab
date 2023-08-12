@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3387082227921257683}
   - component: {fileID: 641096775299100697}
   m_Layer: 0
-  m_Name: Burgwand_blank
+  m_Name: Burgwand_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
