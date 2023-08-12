@@ -14,12 +14,22 @@ public class HealthSystem : MonoBehaviour
             //play damage Sound
             lifePoints -= _damage;
             Debug.Log(lifePoints);
+            //blincken lassen
         }
         else
         {
-            //play Death Sound
+            Died();        
         }
     }
 
-    
+    public void IncreaseLifePoints(float _lifePoints)
+    {
+        lifePoints += _lifePoints;
+    }
+
+    private void Died()
+    {
+        //play Death Sound
+        //play Die Animation
+    }
 }

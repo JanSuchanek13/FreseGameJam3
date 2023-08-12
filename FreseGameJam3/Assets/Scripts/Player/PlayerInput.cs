@@ -38,21 +38,21 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Shoot1"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b8840caa-761f-43f6-bfbb-09dbee7ffde0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Shoot2"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e9ed03f6-e954-40c2-a00c-a6b66d1f9276"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [

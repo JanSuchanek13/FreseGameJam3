@@ -17,10 +17,25 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        switch (weaponData.type)
+        {
+            case 0:
+                break;
 
-        moveTween = transform.DOMove(direction, weaponData.bulletSpeed)
-            .SetEase(Ease.Linear) // Verwende Linear-Easing für konstante Geschwindigkeit
-            .OnComplete(() => Destroy(gameObject));
+            case 1:
+                moveTween = transform.DOMove(direction, weaponData.bulletSpeed)
+                    .SetEase(Ease.Linear) // Verwende Linear-Easing für konstante Geschwindigkeit
+                    .OnComplete(() => Destroy(gameObject));
+                break;
+
+            case 2:
+                transform.DOJump(direction, 2, 1, weaponData.bulletSpeed )
+                    .OnComplete(() => Destroy(gameObject));
+
+                break;
+
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

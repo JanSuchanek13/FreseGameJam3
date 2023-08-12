@@ -8,16 +8,19 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Move")]
     Vector3 inputMovement;
-    float moveSpeed = 10;
+    float moveSpeed = 8;
+    public float moveinput;//for animation
 
     [Header("REFERENCE")]
     [Tooltip("Reference to the PlayerInput Action Mapping")]
     private PlayerInput playerInput;
+    private CharacterController controller;
 
 
     private void Awake()
     {
         playerInput = new PlayerInput();
+        controller = GetComponent<CharacterController>();
     }
 
     /// <summary>
@@ -45,7 +48,17 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         inputMovement = new Vector3(playerInput.Player.Movement.ReadValue<Vector2>().x, 0, playerInput.Player.Movement.ReadValue<Vector2>().y);
-        transform.Translate(inputMovement * Time.deltaTime * moveSpeed, Space.World);
+        moveinput = inputMovement.magnitude;
+
+        // Verwende den CharacterController für die Bewegung
+        controller.Move(inputMovement * Time.deltaTime * moveSpeed);
+
+        // Setze die Y-Bewegung auf 0, um die vertikale Bewegung zu blockieren
+        Vector3 newPosition = controller.transform.position;
+        newPosition.y = 0; // Setze die Y-Komponente auf 0
+        controller.transform.position = newPosition;
+        //inputMovement = new Vector3(playerInput.Player.Movement.ReadValue<Vector2>().x, 0, playerInput.Player.Movement.ReadValue<Vector2>().y);
+        //transform.Translate(inputMovement * Time.deltaTime * moveSpeed, Space.World);
     }
 
     private void FaceMouse()

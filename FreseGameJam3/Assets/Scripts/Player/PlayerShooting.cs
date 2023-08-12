@@ -14,6 +14,8 @@ public class PlayerShooting : MonoBehaviour
     private float nextShot1;
     private float nextShot2;
 
+    public bool shootInput;//for Animation
+
     private void Awake()
     {
         playerInput = new PlayerInput();
@@ -52,6 +54,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void ShootingInput(WeaponScriptableObject _weaponData, UnityEngine.InputSystem.InputAction _shootButton, float _nextShot)
     {
+        shootInput = playerInput.Player.Shoot1.ReadValue<float>() == 1;
+
         switch (_weaponData.fireMode)
         {
             case 0:
@@ -75,6 +79,47 @@ public class PlayerShooting : MonoBehaviour
                 }
                 break;
 
+            case 1:
+                if (_shootButton.triggered)
+                {
+                    if (Time.time > _nextShot)
+                    {
+                        if (_shootButton == playerInput.Player.Shoot1)
+                        {
+                            nextShot1 = Time.time + _weaponData.attackSpeed;
+                        }
+                        else
+                        {
+                            nextShot2 = Time.time + _weaponData.attackSpeed;
+                        }
+
+
+                        Shoot(_weaponData);
+                    }
+
+                }
+                break;
+
+            case 2:
+                if (_shootButton.ReadValue<float>() == 1)
+                {
+                    if (Time.time > _nextShot)
+                    {
+                        if (_shootButton == playerInput.Player.Shoot1)
+                        {
+                            nextShot1 = Time.time + _weaponData.attackSpeed;
+                        }
+                        else
+                        {
+                            nextShot2 = Time.time + _weaponData.attackSpeed;
+                        }
+
+
+                        Shoot(_weaponData);
+                    }
+                }
+                break;
+
         }
     }
 
@@ -93,14 +138,19 @@ public class PlayerShooting : MonoBehaviour
                 InstantiateBullet(_weaponData);
                 break;
 
+            case 2:
+                
+                InstantiateBullet(_weaponData);
+                break;
+
         }
         
     }
 
     private void InstantiateBullet(WeaponScriptableObject _weaponData)
     {
-        GameObject bullet = Instantiate(_weaponData.BulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range;
+        GameObject bullet = Instantiate(_weaponData.BulletPrefab, transform.position + Vector3.up *0.75f, transform.rotation);
+        bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range; //hier die Höhe Vector3.up *0.75f wenn die Kugel nicht runter gehen soll
         bullet.GetComponent<Bullet>().weaponData = _weaponData;
         bullet.GetComponent<Bullet>().playerBullet = true;
     }
