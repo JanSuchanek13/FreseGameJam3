@@ -18,10 +18,13 @@ MonoBehaviour:
   BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
   type: 1
   fireMode: 0
-  range: 10
-  firingRate: 1
+  range: 7.5
+  attackSpeed: 1
   damage: 1
   bulletSpeed: 1
   recoil: 1
   explosive: 0
   aimAccuracy: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
