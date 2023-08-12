@@ -85,12 +85,14 @@ public class EnemyDetection : MonoBehaviour
         if (HasLineOfAttack() && IsInRange()) 
         {
             Debug.DrawLine(transform.position, _spottedEnemyTransform.position, Color.green);
-            _aiMovement.inAttackRange = true;
+            _aiMovement.canAttack = true;
             GetComponent<AICombat>().inRange = true;
+
+            transform.LookAt(_spottedEnemyTransform, Vector3.up);
         }else
         {
             Debug.DrawLine(transform.position, _spottedEnemyTransform.position, Color.red);
-            _aiMovement.inAttackRange = false;
+            _aiMovement.canAttack = false;
             GetComponent<AICombat>().inRange = false;
 
             _aiMovement.targetEnemyPosition = _spottedEnemyTransform.position;
@@ -132,7 +134,7 @@ public class EnemyDetection : MonoBehaviour
     // Use Unity's Gizmos to draw the wireframe in the editor
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

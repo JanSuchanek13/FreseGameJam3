@@ -50,8 +50,13 @@ public class AICombat : MonoBehaviour
         //GameObject _bullet = Instantiate(_weaponData.BulletPrefab, _weaponData.muzzlePoint, transform.rotation);
         //_bullet.GetComponent<Bullet>().direction = _weaponData.muzzlePoint + transform.forward * _weaponData.range;
 
-        GameObject _bullet = Instantiate(_weaponData.BulletPrefab, transform.position, transform.rotation);
-        _bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range;
+        float _maxNegScatter = (1.0f - _weaponData.aimAccuracy) * -1; // eg. -.25 @ 75% accuracy
+        float _maxPosScatter = 1.0f - _weaponData.aimAccuracy; // eg .25 @ 75% accuracy
+        float _scatter = Random.Range(_maxNegScatter, _maxPosScatter);
+
+        GameObject _bullet = Instantiate(_weaponData.BulletPrefab, (transform.position + Vector3.up * .75f), transform.rotation);
+        _bullet.GetComponent<Bullet>().direction = (transform.position + Vector3.up * .75f) + (transform.forward + new Vector3(_scatter, 0, 0)) * _weaponData.range;
+
         _bullet.GetComponent<Bullet>().weaponData = _weaponData;
     }
 
@@ -60,10 +65,12 @@ public class AICombat : MonoBehaviour
         // JUICE:
         // MIAAAAU sound
         // Swipe sound
+
+        //test: visualize melee attack
         StartCoroutine(ShowAttackRangeForDuration(.25f));
 
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, _weaponData.range);
+        Collider[] hits = Physics.OverlapSphere(transform.position, _weaponData.range * 2);
         foreach (Collider hit in hits)
         {
             if (hit.CompareTag("Player"))
@@ -74,7 +81,9 @@ public class AICombat : MonoBehaviour
                 // scratchy Impact sound
                 // blood spray
                 // stars flying
-                StartCoroutine(ShowHitForDuration(.5f));
+
+                //test: visualize melee attack
+                StartCoroutine(ShowHitForDuration(.25f));
             }
         }
     }
@@ -92,9 +101,9 @@ public class AICombat : MonoBehaviour
     }
     private IEnumerator ShowHitForDuration(float duration)
     {
-        drawAttackSphere = true;
+        drawHitSphere = true;
         yield return new WaitForSeconds(duration);
-        drawAttackSphere = false;
+        drawHitSphere = false;
     }
 
     private void OnDrawGizmos()
@@ -102,12 +111,12 @@ public class AICombat : MonoBehaviour
         if (drawAttackSphere)
         {
             Gizmos.color = Color.gray;
-            Gizmos.DrawWireSphere(transform.position, _weaponData.range); // Replace "YourWeaponDataInstance.range" with your actual range.
+            Gizmos.DrawWireSphere(transform.position, _weaponData.range * 2f); 
         }
         if (drawHitSphere)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _weaponData.range); // Replace "YourWeaponDataInstance.range" with your actual range.
+            Gizmos.DrawWireSphere(transform.position, _weaponData.range * 1.5f);
         }
     }
 }
