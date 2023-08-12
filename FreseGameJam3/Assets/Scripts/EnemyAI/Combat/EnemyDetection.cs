@@ -7,7 +7,6 @@ public class EnemyDetection : MonoBehaviour
     [Tooltip("Detection radius around the enemy.")]
     [SerializeField] float detectionRadius = 5.0f;
     [SerializeField] LayerMask detectionLayer; // Layer on which the player is present for efficient searching
-    [SerializeField] bool showDetectionRadiusInEditor = true; // Boolean to toggle wireframe drawing in the editor
 
     private AIMovement _aiMovement;
 
@@ -26,63 +25,55 @@ public class EnemyDetection : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, detectionLayer);
         foreach (Collider hit in hits)
         {
-            Debug.Log("this is true 1");
-
-            //if (hit.CompareTag("Player") && CanSeePlayer(hit.transform))
-            if (hit.CompareTag("Player"))
+            if (hit.CompareTag("Player") && CanSeePlayer(hit.transform))
             {
-                Debug.Log("this is true 2");
+                // blue line means an enemy has been spotted:
+                Debug.DrawLine(transform.position, hit.transform.position, Color.blue);
 
-                if (CanSeePlayer(hit.transform))
-                {
-                    Debug.Log("this is true 3");
-                    _aiMovement.enemySpotted = true;
-                    _aiMovement.targetEnemy = hit.transform;
-                    return;
-                }
+                _aiMovement.enemySpotted = true;
+                _aiMovement.targetEnemyPosition = hit.transform.position;
+                return;
             }
         }
 
-        // Optionally, reset detection if the player is not in the sphere
-        // _aiMovement.enemySpotted = false;
-        // _aiMovement.targetEnemy = null;
+        // reset detection if the player is not in the sphere:
+        //_aiMovement.enemySpotted = false;
+        //_aiMovement.targetEnemyPosition = Vector3.zero;
     }
 
     private bool CanSeePlayer(Transform _heardSomethingOverThere)
     {
         RaycastHit hit;
-        Vector3 _rayOrigin = transform.position + Vector3.up * 1.1f; // Adjust the 1.5f value as needed
-        Vector3 _directionToTarget = (_heardSomethingOverThere.position - transform.position).normalized;
-        if (Physics.Raycast(_rayOrigin, _directionToTarget, out hit, detectionRadius, detectionLayer))
-        {
-            Debug.Log("this is true 4");
+        Vector3 _rayOrigin = transform.position + Vector3.up * 1.1f;
+        Vector3 _directionToTarget = (_heardSomethingOverThere.position - _rayOrigin).normalized;
 
-            // Check if the raycast hit the player
+
+        if (Physics.Raycast(_rayOrigin, _directionToTarget, out hit, Mathf.Infinity, detectionLayer))
+        {
+            Debug.DrawLine(transform.position, _heardSomethingOverThere.position, Color.black);
+
+            // check if the raycast hit the player
             if (hit.transform.gameObject.CompareTag("Player"))
             {
-                Debug.Log("this is true 6");
-
-                Debug.DrawLine(transform.position, _heardSomethingOverThere.position, Color.green); // Draw a green line
+                Debug.DrawLine(_rayOrigin, _heardSomethingOverThere.position, Color.green);
 
                 return true;
-            }
-            else
+            }else
             {
                 Debug.Log("ray hit " + hit.collider.name);
             }
         }
-        Debug.DrawLine(transform.position, _heardSomethingOverThere.position, Color.red); // Draw a red line
 
+        Debug.DrawLine(_rayOrigin, _heardSomethingOverThere.position, Color.red);
         return false;
     }
+
+
 
     // Use Unity's Gizmos to draw the wireframe in the editor
     private void OnDrawGizmos()
     {
-        if (showDetectionRadiusInEditor)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, detectionRadius);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

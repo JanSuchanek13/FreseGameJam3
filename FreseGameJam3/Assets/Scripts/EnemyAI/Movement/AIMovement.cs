@@ -10,20 +10,24 @@ public class AIMovement : MonoBehaviour
     private NavMeshAgent _agent;
     private float _walkDuration;
     private bool _isWalking;
+    private LayerMask _firingLayer;
 
     public bool enemySpotted;
-    public Transform targetEnemy; // Reference to the target enemy's position
+    //public Transform targetEnemy; // Reference to the target enemy's position
+    public Vector3 targetEnemyPosition; // Reference to the target enemy's position
 
     private void Start()
     {
         _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
+        _firingLayer = _weaponData.layerMask;
+
         _agent = GetComponent<NavMeshAgent>();
         StartRandomWalking();
     }
 
     private void Update()
     {
-        if (enemySpotted && targetEnemy != null)
+        if (enemySpotted && targetEnemyPosition != null)
         {
             MoveIntoAttackRange();
         }else if (!_isWalking)
@@ -34,27 +38,39 @@ public class AIMovement : MonoBehaviour
 
     private void MoveIntoAttackRange()
     {
-        float distanceToTarget = Vector3.Distance(transform.position, targetEnemy.position);
+        float distanceToTarget = Vector3.Distance(transform.position, targetEnemyPosition);
+
         switch (_weaponData.type) // Using the 'type' enum from WeaponScriptableObject
         {
             case 0:
-                if (distanceToTarget > _weaponData.range)
+                if (distanceToTarget > _weaponData.range || !HasClearLineOfSight())
                 {
-                    _agent.SetDestination(targetEnemy.position);
+                    _agent.SetDestination(targetEnemyPosition);
+                }else if(distanceToTarget <= _weaponData.range || HasClearLineOfSight())
+                {
+                    _agent.SetDestination(transform.position);
                 }
                 break;
 
             case 1:
                 if (distanceToTarget > _weaponData.range || !HasClearLineOfSight())
                 {
-                    _agent.SetDestination(targetEnemy.position);
+                    _agent.SetDestination(targetEnemyPosition);
+                }
+                else if (distanceToTarget <= _weaponData.range || HasClearLineOfSight())
+                {
+                    _agent.SetDestination(transform.position);
                 }
                 break;
 
             case 2:
                 if (distanceToTarget > _weaponData.range || !HasIndirectLineOfSight())
                 {
-                    _agent.SetDestination(targetEnemy.position);
+                    _agent.SetDestination(targetEnemyPosition);
+                }
+                else if (distanceToTarget <= _weaponData.range || HasIndirectLineOfSight())
+                {
+                    _agent.SetDestination(transform.position);
                 }
                 break;
         }
@@ -63,21 +79,52 @@ public class AIMovement : MonoBehaviour
     private bool HasClearLineOfSight()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (targetEnemy.position - transform.position).normalized, out hit, _weaponData.range))
+
+        // check for intervening terrain:
+        if (Physics.Raycast(transform.position, (targetEnemyPosition - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
         {
-            return hit.transform == targetEnemy;
+            Debug.Log("cannot see the player directly");
+            return false;
+        }
+
+        // current weapon can reach/see the target 
+        return true;
+    }
+    private bool HasIndirectLineOfSight()
+    {
+        RaycastHit hit;
+
+        // check for intervening terrain:
+        if (Physics.Raycast(transform.position, (targetEnemyPosition - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
+        {
+            Debug.Log("cannot see the player INdirectly");
+            return false;
+        }
+
+        // current weapon can reach/see the target 
+        return true;
+    }
+
+    /*private bool HasClearLineOfSight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, (targetEnemyPosition - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
+        {
+            return hit.transform.position == targetEnemyPosition;
         }
         return false;
     }
     private bool HasIndirectLineOfSight()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (targetEnemy.position - transform.position).normalized, out hit, _weaponData.range))
+        // here we can simply cast a ray and check if it hits something like a wall or pillar which would be on the layer of "indirect blocking" eg
+
+        if (Physics.Raycast(transform.position, (targetEnemyPosition - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
         {
-            return hit.transform == targetEnemy;
+            return hit.transform.position == targetEnemyPosition;
         }
         return false;
-    }
+    }*/
 
     private void StartRandomWalking()
     {

@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9183fa8b77537746b760e56235d3c21, type: 3}
-  m_Name: GunData
+  m_Name: IndirectData
   m_EditorClassIdentifier: 
-  prefabName: Gun
-  WeaponID: 1
-  WeaponPrefab: {fileID: 7538698644893423484, guid: 5f139f1f155019b4c9f20d1e9975231e, type: 3}
-  BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
-  type: 1
-  fireMode: 0
-  range: 7.5
-  attackSpeed: 1
-  damage: 1
+  prefabName: 
+  WeaponID: 0
+  WeaponPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 0}
+  type: 2
+  fireMode: 1
+  range: 10
+  attackSpeed: 0
+  damage: 5
   bulletSpeed: 1
-  recoil: 1
-  explosive: 0
-  aimAccuracy: 0.5
+  recoil: 5
+  explosive: 1
+  aimAccuracy: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
