@@ -28,7 +28,7 @@ public class CollectibleItem : MonoBehaviour
             }
             if(weaponData != null)
             {
-                other.transform.parent.GetComponent<WeaponHandler>();
+                other.transform.parent.GetComponent<WeaponHandler>().SwitchWeapon(weaponData.WeaponPrefab);
                 Destroy(gameObject);
             }
         }

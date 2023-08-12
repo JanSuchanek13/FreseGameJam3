@@ -153,7 +153,7 @@ public class PlayerShooting : MonoBehaviour
     private void InstantiateBullet(WeaponScriptableObject _weaponData)
     {
         GameObject bullet = Instantiate(_weaponData.BulletPrefab, transform.position + Vector3.up *0.75f, transform.rotation);
-        bullet.GetComponent<Bullet>().direction = transform.position + transform.forward * _weaponData.range; //hier die Höhe Vector3.up *0.75f wenn die Kugel nicht runter gehen soll
+        bullet.GetComponent<Bullet>().direction = (transform.position + Vector3.up * 0.75f) + transform.forward * _weaponData.range; //hier die Höhe Vector3.up *0.75f wenn die Kugel nicht runter gehen soll
         bullet.GetComponent<Bullet>().weaponData = _weaponData;
         bullet.GetComponent<Bullet>().playerBullet = true;
     }

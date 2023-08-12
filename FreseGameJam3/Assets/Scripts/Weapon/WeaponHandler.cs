@@ -17,6 +17,19 @@ public class WeaponHandler : MonoBehaviour
         SetWeaponInHand();
     }
 
+    public void SwitchWeapon(GameObject _newWeapon)
+    {
+        ThrowOutWeapon(Weapon2);
+        Weapon2 = Weapon1;
+        Weapon1 = _newWeapon;
+        SetWeaponInHand();
+    }
+
+    private void ThrowOutWeapon(GameObject weapon)
+    {
+
+    }
+
     private void SetWeaponInHand()
     {
         Weapon1.transform.parent = Hand1.transform;
