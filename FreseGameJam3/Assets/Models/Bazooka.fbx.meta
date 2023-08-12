@@ -1,13 +1,31 @@
 fileFormatVersion: 2
-guid: 14c3ddaaa10ba5b45805ff263b69afc8
+guid: c154e4b6a2b23ce4bb540fcd854bf9e0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
+      74: -1692726927789917253
+    second: Armature_Bazooka|Heart_Beating
+  - first:
+      74: 479023628372538690
+    second: Armature_Bazooka|Heart_Idle
+  - first:
       74: -9072798795364441379
     second: Bazooka|Idle
   - first:
+      74: -7333950070185761012
+    second: Armature_Bazooka|PickleAction
+  - first:
       74: -3365056663832615366
+    second: Armature_Bazooka|Shoot
+  - first:
+      74: -8723598868999477027
+    second: Armature_Bazooka|Watergun_Idle
+  - first:
+      74: -8664943357606156774
+    second: Armature_Bazooka|Watergun_Shoot
+  - first:
+      74: -6418157165752561105
     second: Bazooka|Shoot
   externalObjects:
   - first:
