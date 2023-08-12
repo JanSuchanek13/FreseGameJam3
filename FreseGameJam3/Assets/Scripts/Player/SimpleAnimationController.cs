@@ -14,6 +14,8 @@ public class SimpleAnimationController : MonoBehaviour
     private Animator animatorBody;
     [SerializeField]
     private Animator animatorL_Arm;
+    [SerializeField]
+    private Animator animatorR_Arm;
 
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class SimpleAnimationController : MonoBehaviour
     {
         animatorBody.SetFloat("MoveSpeed", movement.moveinput);
         animatorL_Arm.SetBool("Shoot", shooting.shootInputL);
+        animatorR_Arm.SetBool("Shoot", shooting.shootInputR);
         animatorRWeapon.SetBool("Shoot", shooting.shootInputR);
         animatorLWeapon.SetBool("Shoot", shooting.shootInputL);
     }

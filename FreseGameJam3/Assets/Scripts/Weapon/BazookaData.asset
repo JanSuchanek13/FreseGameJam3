@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: 
   WeaponID: 0
-  WeaponPrefab: {fileID: 0}
-  BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
+  WeaponPrefab: {fileID: 7538698644893423484, guid: 5d7877fd536f598458213984fdaca1d8, type: 3}
+  BulletPrefab: {fileID: 2262963598735878972, guid: fbe5c5271777614408725f975083a315, type: 3}
   type: 2
   fireMode: 0
   range: 10
@@ -25,6 +25,8 @@ MonoBehaviour:
   recoil: 5
   explosive: 1
   aimAccuracy: 0.5
+  burstBullets: 0
+  burstDuration: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 128

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerInput = new PlayerInput();
-        controller = GetComponent<CharacterController>();
+        controller = transform.parent.GetComponent<CharacterController>();
     }
 
     /// <summary>
