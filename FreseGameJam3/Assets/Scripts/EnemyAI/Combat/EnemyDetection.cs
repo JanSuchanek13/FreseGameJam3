@@ -18,6 +18,9 @@ public class EnemyDetection : MonoBehaviour
     private WeaponScriptableObject _weaponData;
     private LayerMask _firingLayer;
 
+    [Header("Do Not Touch:")]
+    public bool isAlive = true;
+
     private void Awake()
     {
         _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
@@ -28,19 +31,25 @@ public class EnemyDetection : MonoBehaviour
 
     private void Update()
     {
-        if (!_enemySpotted)
+        if (isAlive)
         {
-            ScanForPlayer();
+            if (!_enemySpotted)
+            {
+                ScanForPlayer();
+            }else
+            {
+                // white line = enemy in spotting range and visible:
+                Debug.DrawLine((transform.position + Vector3.up * 1.2f), _spottedEnemyTransform.position, Color.white);
+
+                if (!_screamingMiau && _miauSound != null)
+                {
+                    StartCoroutine("ScreamMiauAndScareThePlayer");
+                }
+                CheckForLineOfAttack();
+            }
         }else
         {
-            // white line = enemy in spotting range and visible:
-            Debug.DrawLine((transform.position + Vector3.up * 1.2f), _spottedEnemyTransform.position, Color.white);
-
-            if (!_screamingMiau && _miauSound != null)
-            {
-                StartCoroutine("ScreamMiauAndScareThePlayer");
-            }
-            CheckForLineOfAttack();
+            LostEnemyContact();
         }
     }
 
@@ -94,6 +103,7 @@ public class EnemyDetection : MonoBehaviour
             _aiMovement.canAttack = true;
             GetComponent<AICombat>().inRange = true;
 
+            // turn to face the spotted enemy:
             transform.LookAt(_spottedEnemyTransform, Vector3.up);
         }else
         {
@@ -165,8 +175,8 @@ public class EnemyDetection : MonoBehaviour
     // reset detection if the player is not in the sphere:
     void LostEnemyContact()
     {
-        //_aiMovement.enemySpotted = false;
-        //_aiMovement.targetEnemyPosition = Vector3.zero;
+        _aiMovement.enemySpotted = false;
+        _aiMovement.targetEnemyPosition = Vector3.zero;
     }
 
     IEnumerator ScreamMiauAndScareThePlayer()

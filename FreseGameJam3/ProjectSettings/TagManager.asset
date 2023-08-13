@@ -17,8 +17,8 @@ TagManager:
   - DirectLineOfFireBlocking
   - IndirectLineOfFireBlocking
   - IndirectBullet
-  - 
-  - 
+  - IgnoreCharacters
+  - Character
   - 
   - 
   - 
