@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Katzi
+      name: Katzi.001
     second: {fileID: 2100000, guid: d6988cc5f3f3f424496ced287bdc598d, type: 2}
   materials:
     materialImportMode: 2
