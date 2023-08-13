@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   lifePoints: 1
-  weaponData: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: f7d7c41076facb24aac958c9b816761f, type: 2}
 --- !u!114 &735520486511286006
 MonoBehaviour:
   m_ObjectHideFlags: 0

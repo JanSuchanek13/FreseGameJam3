@@ -104,9 +104,12 @@ public class PlayerShooting : MonoBehaviour
                         {
                             nextShot2 = Time.time + _weaponData.attackSpeed;
                         }
+                        for (int i = 0; i < _weaponData.burstBullets; i++)
+                        {
+                            Shoot(_weaponData);
+                        }
 
-
-                        Shoot(_weaponData);
+                        
                     }
 
                 }
