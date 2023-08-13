@@ -98,7 +98,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimStep: 0.018
+    - _RimStep: 0
     - _RimStepSmooth: 1
     - _ShadowStep: 0.793
     - _ShadowStepSmooth: 0.005
