@@ -138,11 +138,18 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    [SerializeField] AudioSource _audioSourceGun;
+    //[SerializeField] AudioSource _audioSourceRight;
+
     private void Shoot(WeaponScriptableObject _weaponData)
     {
         //play Sound
         //play Effect
         //play Animation
+        _audioSourceGun.clip = _weaponData.attackSound;
+        _audioSourceGun.PlayOneShot(_audioSourceGun.clip);
+
+
         switch (_weaponData.type)
         {
             case 0:

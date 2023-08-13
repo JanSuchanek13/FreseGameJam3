@@ -27,7 +27,7 @@ MonoBehaviour:
   aimAccuracy: 10
   burstBullets: 10
   burstDuration: 0
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 0b9d5313c4b4970419096cf5bd6f2821, type: 3}
   detectInterveningTerrainLayer:
     serializedVersion: 2
     m_Bits: 192
