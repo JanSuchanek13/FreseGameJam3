@@ -33,6 +33,7 @@ public class AICombat : MonoBehaviour
         }
 
         _attackSoundPlayer.clip = _weaponData.attackSound;
+        _attackSoundPlayer.volume = 0.1f;
     }
 
     private void Update()
