@@ -15,8 +15,15 @@ public class Bullet : MonoBehaviour
     [Tooltip("Data of the Weapon")]
     public bool playerBullet;
 
+    //keinAwake benutzen weil das vor Instantiate gecalled wird;
+
     private void Start()
     {
+        if(weaponData.layerMask == LayerMask.GetMask("IndirectBullet"))
+        {
+            gameObject.layer = LayerMask.NameToLayer("IndirectBullet");
+        }
+
         switch (weaponData.type)
         {
             case 0:
