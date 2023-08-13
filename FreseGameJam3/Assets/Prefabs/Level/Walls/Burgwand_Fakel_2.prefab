@@ -818,95 +818,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
   m_PrefabInstance: {fileID: 1090972595391898258}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2741909154593200982
+--- !u!1001 &3052454782593868144
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 7299029506188947858}
     m_Modifications:
-    - target: {fileID: 210314339153559729, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 407054164341051268, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_Name
-      value: Fackelhalter
-      objectReference: {fileID: 0}
-    - target: {fileID: 407054164341051268, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.822
-      objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.822
-      objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.822
-      objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+    - target: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4313999651215932629, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169330595202143206, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 718162725384762786, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
+      propertyPath: m_Name
+      value: Fackelhalter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
 --- !u!4 &2945568487025626728 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1075785504988075326, guid: 868940ae94eef3e4abf9338d18e84906, type: 3}
-  m_PrefabInstance: {fileID: 2741909154593200982}
+  m_CorrespondingSourceObject: {fileID: 197240965768703768, guid: 555b1e782198b48479b27b2ad58ac0f9, type: 3}
+  m_PrefabInstance: {fileID: 3052454782593868144}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3748773546408717413
 PrefabInstance:
