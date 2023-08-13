@@ -7,11 +7,13 @@ public class EnemyDetection : MonoBehaviour
     [Tooltip("Detection radius around the enemy.")]
     [SerializeField] float detectionRadius = 5.0f;
     [SerializeField] LayerMask detectionLayer; // Layer on which the player is present for efficient searching
+    [SerializeField] AudioSource _miauSound;
 
     private AIMovement _aiMovement;
 
     // these vars are used to handle AI's interaction with a spotted enemy (player):
     private bool _enemySpotted = false;
+    private bool _screamingMiau = false;
     private Transform _spottedEnemyTransform;
     private WeaponScriptableObject _weaponData;
     private LayerMask _firingLayer;
@@ -34,6 +36,10 @@ public class EnemyDetection : MonoBehaviour
             // white line = enemy in spotting range and visible:
             Debug.DrawLine((transform.position + Vector3.up * 1.2f), _spottedEnemyTransform.position, Color.white);
 
+            if (!_screamingMiau && _miauSound != null)
+            {
+                StartCoroutine("ScreamMiauAndScareThePlayer");
+            }
             CheckForLineOfAttack();
         }
     }
@@ -102,6 +108,38 @@ public class EnemyDetection : MonoBehaviour
     private bool HasLineOfAttack()
     {
         RaycastHit hit;
+        float _bulletRadius;
+
+        Vector3 directionToEnemy = (_spottedEnemyTransform.position - transform.position).normalized;
+
+        // Get the bullet size (assuming the bullet has a SphereCollider, you can get its radius)
+        if(_weaponData.BulletPrefab != null)
+        {
+            _bulletRadius = _weaponData.BulletPrefab.GetComponent<SphereCollider>().radius;
+        }else // Close combat (no bullet):
+        {
+            _bulletRadius = 0.2f;
+        }
+
+
+        // SphereCast from current position in the direction of the enemy
+        if (Physics.SphereCast(transform.position, _bulletRadius, directionToEnemy, out hit, _weaponData.range, _firingLayer))
+        {
+            // If the SphereCast hits something other than the enemy
+            if (hit.transform != _spottedEnemyTransform)
+            {
+                // Intervening terrain or obstacle was hit
+                return false;
+            }
+        }
+
+        // No intervening terrain in the path up to the given range
+        return true;
+    }
+    /*
+    private bool HasLineOfAttack()
+    {
+        RaycastHit hit;
 
         // check for intervening terrain:
         if (Physics.Raycast(transform.position, (_spottedEnemyTransform.position - transform.position).normalized, out hit, _weaponData.range, _firingLayer))
@@ -110,7 +148,7 @@ public class EnemyDetection : MonoBehaviour
         }
 
         return true;
-    }
+    }*/
     private bool IsInRange()
     {
         float _distanceToEnemy = Vector3.Distance(transform.position, _spottedEnemyTransform.position);
@@ -129,6 +167,17 @@ public class EnemyDetection : MonoBehaviour
     {
         //_aiMovement.enemySpotted = false;
         //_aiMovement.targetEnemyPosition = Vector3.zero;
+    }
+
+    IEnumerator ScreamMiauAndScareThePlayer()
+    {
+        _screamingMiau = true;
+        _miauSound.Play();
+
+        float _rngWaittime = Random.Range(3.0f, 15.0f);
+        
+        yield return new WaitForSeconds(_rngWaittime);
+        _screamingMiau = false;
     }
 
     // Use Unity's Gizmos to draw the wireframe in the editor

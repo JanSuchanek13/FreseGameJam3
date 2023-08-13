@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9183fa8b77537746b760e56235d3c21, type: 3}
   m_Name: CCData
   m_EditorClassIdentifier: 
-  prefabName: 
+  prefabName: Clawz
   WeaponID: 0
   WeaponPrefab: {fileID: 0}
   BulletPrefab: {fileID: 0}
@@ -25,6 +25,9 @@ MonoBehaviour:
   recoil: 0
   explosive: 0
   aimAccuracy: 0
+  burstBullets: 0
+  burstDuration: 0
+  attackSound: {fileID: 8300000, guid: 6e52ca6b1c38e944e8c53b1e751c4de7, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 0

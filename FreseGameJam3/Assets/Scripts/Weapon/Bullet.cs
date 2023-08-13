@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy") && playerBullet)
         {
             //Debug.Log("hit");
-            other.transform.parent.transform.parent.GetComponent<HealthSystem>().DecreaseLifePoints(weaponData.damage);
+            other.transform.parent.transform.parent.GetComponent<AIHealth>().DecreaseLifePoints(weaponData.damage);
             Destroy();
         }
         if (other.CompareTag("Boundaries"))

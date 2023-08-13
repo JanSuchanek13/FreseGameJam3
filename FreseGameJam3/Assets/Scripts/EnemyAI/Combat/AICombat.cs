@@ -9,12 +9,21 @@ public class AICombat : MonoBehaviour
 
     private bool _attacking = false;
     private WeaponScriptableObject _weaponData;
+    [SerializeField] AudioSource _attackSoundPlayer;
 
+    // Animation vars:
+    Animator _animator;
+    Animator _animatorWeapon;
     
     private void OnEnable()
-    {  
+    {
+        _animator = transform.Find("G_KatziArmsShootingWalking").GetComponent<Animator>();
+        _animatorWeapon = transform.Find(weapon.name).GetComponent<Animator>();
+
         // check which weapon is being carried:
         _weaponData = weapon.GetComponent<WeaponData>().data;
+
+        _attackSoundPlayer.clip = _weaponData.attackSound;
     }
 
     private void Update()
@@ -28,20 +37,47 @@ public class AICombat : MonoBehaviour
     IEnumerator Attack()
     {
         _attacking = true;
-        
-        // create bullet if applicable:
-        if(_weaponData.type != 0)
+
+
+        if (_attackSoundPlayer.clip != null)
         {
+            _attackSoundPlayer.Play();
+        }
+
+        // create bullet if applicable:
+        if (_weaponData.type != 0)
+        {
+            // start attack animation:
+            _animator.SetBool("Shoot", _attacking); // shoot includes close combat
+            _animatorWeapon.SetBool("Shoot", _attacking); // animate weapon
+
             FireBullet(_weaponData);
         }else
         {
-            Strike(_weaponData);
+            // start attack animation:
+            _animator.SetBool("Shoot", _attacking); // shoot includes close combat
+            //_animatorWeapon.SetBool("Shoot", _attacking); // animate weapon
+
+            //Strike(_weaponData);
+            Strike();
         }
 
         yield return new WaitForSeconds(_weaponData.attackSpeed);
 
         // if still in range, attack again:
-        _attacking = false; 
+        _attacking = false;
+
+        if (_weaponData.type != 0)
+        {
+            // stop attack animation:
+            _animator.SetBool("Shoot", _attacking); // stop shoot includes close combat
+            _animatorWeapon.SetBool("Shoot", _attacking); // stop animate weapon
+        }else
+        {
+            // stop attack animation:
+            _animator.SetBool("Shoot", _attacking); // stop shoot includes close combat
+            //_animatorWeapon.SetBool("Shoot", _attacking); // stop animate weapon
+        }
     }
 
     private void FireBullet(WeaponScriptableObject _weaponData)
@@ -60,7 +96,8 @@ public class AICombat : MonoBehaviour
         _bullet.GetComponent<Bullet>().weaponData = _weaponData;
     }
 
-    private void Strike(WeaponScriptableObject _weaponData)
+    //private void Strike(WeaponScriptableObject _weaponData)
+    private void Strike()
     {
         // JUICE:
         // MIAAAAU sound
@@ -73,9 +110,9 @@ public class AICombat : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, _weaponData.range * 2);
         foreach (Collider hit in hits)
         {
-            if (hit.CompareTag("Player"))
+            if (hit.CompareTag("Player") && hit.gameObject.GetComponentInParent<HealthSystem>() != null)
             {
-                hit.gameObject.GetComponent<HealthSystem>().DecreaseLifePoints(_weaponData.damage);
+                hit.gameObject.GetComponentInParent<HealthSystem>().DecreaseLifePoints(_weaponData.damage);
 
                 //JUICE:
                 // scratchy Impact sound

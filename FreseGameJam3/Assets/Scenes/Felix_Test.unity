@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: bc6e4ab278eda8e4fb87f3c68dc68c5f, type: 2}
 --- !u!1001 &17900339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4204,6 +4204,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 149625519498958776, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
+      propertyPath: lifePoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 149625520796924703, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149625520796924703, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.47
+      objectReference: {fileID: 0}
     - target: {fileID: 6398360423170320711, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4211,6 +4223,10 @@ PrefabInstance:
     - target: {fileID: 6398360423170320711, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506202799280220395, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6685397856800349130, guid: d90874305f005884cbd5bbdf1bb183db, type: 3}
       propertyPath: m_TagString
@@ -4722,6 +4738,10 @@ PrefabInstance:
     - target: {fileID: 2545373764403659638, guid: abfca0cdb4105d5489cd0f750c866f6d, type: 3}
       propertyPath: m_Name
       value: 'Enemy_Katzi: WATERGUN (Direct)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545373764403659638, guid: abfca0cdb4105d5489cd0f750c866f6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfca0cdb4105d5489cd0f750c866f6d, type: 3}
@@ -5451,6 +5471,10 @@ PrefabInstance:
     - target: {fileID: 8209118881315777059, guid: a3cce2575b3651b4db71b8b637e6a1f2, type: 3}
       propertyPath: m_Name
       value: 'Enemy_Katzi: PANZERFAUST (Indirect)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209118881315777059, guid: a3cce2575b3651b4db71b8b637e6a1f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8209118881315777065, guid: a3cce2575b3651b4db71b8b637e6a1f2, type: 3}
       propertyPath: m_RootOrder
