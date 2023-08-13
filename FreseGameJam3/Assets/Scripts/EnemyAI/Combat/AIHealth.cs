@@ -25,6 +25,7 @@ public class AIHealth : MonoBehaviour
     Animator _animatorArms;
 
     [SerializeField] GameObject _helmet;
+    [SerializeField] GameObject _riggedHelmet;
     [SerializeField] float _helmetThrowingForceMultiplier = 3.0f;
 
     private void OnEnable()
@@ -112,9 +113,10 @@ public class AIHealth : MonoBehaviour
 
     void LoseHelmet()
     {
+        _riggedHelmet.SetActive(false);
         _helmet.SetActive(true);
         _helmet.transform.parent = null;
-
+        
         /*
         _helmet.layer = LayerMask.NameToLayer("IgnoreCharacters");
         _helmet.AddComponent<MeshCollider>();

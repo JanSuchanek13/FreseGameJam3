@@ -20,11 +20,17 @@ public class AICombat : MonoBehaviour
 
     private void OnEnable()
     {
-        _animator = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
-        _animatorWeapon = transform.Find("Geometry:/G_KatziArmsShootingWalking/ArmatureKatziArms/Bone/Bone.014/Bone.015/Bone.016/Bone.017/" + weapon.name + "/" + weapon.name).GetComponent<Animator>();
-
         // check which weapon is being carried:
         _weaponData = weapon.GetComponent<WeaponData>().data;
+
+        if (_weaponData.type != 0)
+        {
+            _animator = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
+            _animatorWeapon = transform.Find("Geometry:/G_KatziArmsShootingWalking/ArmatureKatziArms/Bone/Bone.014/Bone.015/Bone.016/Bone.017/" + weapon.name + "/" + weapon.name).GetComponent<Animator>();
+        }else
+        {
+            _animator = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
+        }
 
         _attackSoundPlayer.clip = _weaponData.attackSound;
     }
@@ -102,11 +108,6 @@ public class AICombat : MonoBehaviour
     //private void Strike(WeaponScriptableObject _weaponData)
     private void Strike()
     {
-        // JUICE:
-        // MIAAAAU sound
-        // Swipe sound
-
-        //test: visualize melee attack
         StartCoroutine(ShowAttackRangeForDuration(.25f));
 
 
@@ -116,11 +117,6 @@ public class AICombat : MonoBehaviour
             if (hit.CompareTag("Player") && hit.gameObject.GetComponentInParent<HealthSystem>() != null)
             {
                 hit.gameObject.GetComponentInParent<HealthSystem>().DecreaseLifePoints(_weaponData.damage);
-
-                //JUICE:
-                // scratchy Impact sound
-                // blood spray
-                // stars flying
 
                 //test: visualize melee attack
                 StartCoroutine(ShowHitForDuration(.25f));

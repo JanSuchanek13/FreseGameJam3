@@ -463,7 +463,8 @@ MonoBehaviour:
   _deathSound: {fileID: 8492521462334132395}
   _takeDamageParticle: {fileID: 5922662343811603168}
   _helmet: {fileID: 1631627929418644526}
-  _helmetThrowingForceMultiplier: 3
+  _riggedHelmet: {fileID: 7915290117847892316}
+  _helmetThrowingForceMultiplier: 6
 --- !u!1 &2545373764704352327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1611,11 @@ PrefabInstance:
 --- !u!137 &7847912188263354697 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1630794972795428178, guid: d38fd94d525adae47bff56cc752176f7, type: 3}
+  m_PrefabInstance: {fileID: 8811536681180302363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7915290117847892316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1697891702043856199, guid: d38fd94d525adae47bff56cc752176f7, type: 3}
   m_PrefabInstance: {fileID: 8811536681180302363}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8541556342020550986 stripped
