@@ -30,7 +30,7 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   detectInterveningTerrainLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   ammoLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -34,7 +34,7 @@ public class AIHealth : MonoBehaviour
         _animatorArms = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
 
         //_geometry = GameObject.Find("Geometry:");
-        _collider = GameObject.Find("Collider:");
+        _collider = transform.Find("Collider:").gameObject;
     }
     public void DecreaseLifePoints(float _damage)
     {
