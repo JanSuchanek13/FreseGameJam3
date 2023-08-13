@@ -22,6 +22,7 @@ public class WeaponHandler : MonoBehaviour
 
     public void SwitchWeapon(GameObject _newWeapon)
     {
+        collectWeapon.Play();
         ThrowOutWeapon(Weapon2);
         Weapon2 = Weapon1;
         Weapon1 = Instantiate(_newWeapon, transform.position, transform.rotation); //_newWeapon;
