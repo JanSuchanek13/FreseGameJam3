@@ -233,31 +233,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424000936237638003, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.0069555193
+      value: 0.018966585
       objectReference: {fileID: 0}
     - target: {fileID: 424000936237638003, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: -0.035086326
+      value: -0.021545522
       objectReference: {fileID: 0}
     - target: {fileID: 424000936237638003, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.0019703358
+      value: -0.0019703284
       objectReference: {fileID: 0}
     - target: {fileID: 424000936237638003, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.090385035
+      value: 0.10239611
       objectReference: {fileID: 0}
     - target: {fileID: 424000936237638003, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.11576422
+      value: 0.10222342
       objectReference: {fileID: 0}
     - target: {fileID: 658426369785542863, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
       propertyPath: m_Name
       value: Bazooka_WollkneulGrenade (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 658426369785542863, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 424000936237637967, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
+    - {fileID: 424000936237638000, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
+--- !u!1 &1630212772708723259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 658426369785542863, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
+  m_PrefabInstance: {fileID: 2286877165126062836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2165491361915237099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630212772708723259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd9b145f5f795f4f91f5cf48060171d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulsationSpeed: 15
+  scaleFactor: 0.4
 --- !u!4 &2149480694834524289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 173639170745524853, guid: 7f2dc62e6f5c851438e37477119a4f50, type: 3}
