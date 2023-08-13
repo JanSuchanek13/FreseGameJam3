@@ -22,5 +22,9 @@ public class WeaponScriptableObject : ScriptableObject
     public int burstBullets;
     public float burstDuration;
     public AudioClip attackSound;
-    public LayerMask layerMask;
+    [Tooltip("This LayerMask is used by the AI to determine if it's able to fire over an invervening piece of terrain or not." +
+        "This weapon is not able to shoot over/through this terrain layer!")]
+    public LayerMask detectInterveningTerrainLayer;
+    [Tooltip("This LayerMask is for Ammo.")]
+    public LayerMask ammoLayer;
 }

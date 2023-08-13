@@ -28,6 +28,9 @@ MonoBehaviour:
   burstBullets: 0
   burstDuration: 0
   attackSound: {fileID: 8300000, guid: 6e52ca6b1c38e944e8c53b1e751c4de7, type: 3}
-  layerMask:
+  detectInterveningTerrainLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  ammoLayer:
     serializedVersion: 2
     m_Bits: 0

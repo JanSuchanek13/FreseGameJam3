@@ -24,7 +24,7 @@ public class EnemyDetection : MonoBehaviour
     private void Awake()
     {
         _weaponData = GetComponent<AICombat>().weapon.GetComponent<WeaponData>().data;
-        _firingLayer = _weaponData.layerMask;
+        _firingLayer = _weaponData.detectInterveningTerrainLayer;
 
         _aiMovement = GetComponent<AIMovement>();
     }

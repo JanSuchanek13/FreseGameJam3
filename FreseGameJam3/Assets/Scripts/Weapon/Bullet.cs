@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        if(weaponData.layerMask == LayerMask.GetMask("IndirectBullet"))
+        if(weaponData.ammoLayer == LayerMask.GetMask("IndirectBullet"))
         {
             gameObject.layer = LayerMask.NameToLayer("IndirectBullet");
         }
