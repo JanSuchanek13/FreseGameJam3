@@ -1,21 +1,26 @@
 fileFormatVersion: 2
-guid: b65faab925406044ebb20e6a06d061bc
+guid: b030dfa6cbfa21f41b413a4a8fb4f467
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -8597727376075078228
-    second: R_Arm_Amature|R_Die
+      74: -7587045338400435827
+    second: R_Arm_Amature|R_Arm_Amature|R_Arm_Amature|R_Die
   - first:
-      74: 5130689956687164480
-    second: R_Arm_Amature|R_Idle
+      74: -4927895544991672541
+    second: R_Arm_Amature|R_Arm_Amature|R_Arm_Amature|R_Idle
   - first:
-      74: -4313788323216454911
-    second: R_Arm_Amature|R_Shoot
+      74: -19748251893032248
+    second: R_Arm_Amature|R_Arm_Amature|R_Arm_Amature|R_Shoot
   - first:
-      74: -7700540153402188280
-    second: R_Arm_Amature|R_TPose
-  externalObjects: {}
+      74: 4237607836203247087
+    second: R_Arm_Amature|R_Arm_Amature|R_Arm_Amature|R_TPose
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arme.001
+    second: {fileID: 2100000, guid: 6ddbed2d77838d649bab8ede7a91058b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

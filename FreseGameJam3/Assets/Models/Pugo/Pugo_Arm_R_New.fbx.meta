@@ -15,7 +15,12 @@ ModelImporter:
   - first:
       74: 4237607836203247087
     second: R_Arm_Amature|R_Arm_Amature|R_Arm_Amature|R_TPose
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arme.001
+    second: {fileID: 2100000, guid: 6ddbed2d77838d649bab8ede7a91058b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

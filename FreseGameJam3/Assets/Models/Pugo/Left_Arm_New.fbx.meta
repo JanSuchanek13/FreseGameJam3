@@ -15,7 +15,12 @@ ModelImporter:
   - first:
       74: -5217820588879057593
     second: L_Arm|L_Arm|L_Arm|L_Tpose
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arme
+    second: {fileID: 2100000, guid: 6ddbed2d77838d649bab8ede7a91058b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
