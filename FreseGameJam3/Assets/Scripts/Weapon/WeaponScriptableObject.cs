@@ -21,5 +21,6 @@ public class WeaponScriptableObject : ScriptableObject
     public float aimAccuracy;
     public int burstBullets;
     public float burstDuration;
+    public AudioSource attackSound;
     public LayerMask layerMask;
 }
