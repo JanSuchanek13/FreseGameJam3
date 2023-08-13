@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7280371825995638059}
   - component: {fileID: 5481389605115256240}
   m_Layer: 0
-  m_Name: TakeDamage_Particle System
+  m_Name: TakeDamage_Pugo_Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4862,7 +4862,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 6565391312618562247, guid: 4fef4b8113d5a7e4db3d67fc34bd25a9, type: 3}
+  m_Mesh: {fileID: -7587030971442298145, guid: a510e77f84e8dbb4c8595dfcd2d1cccc, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
