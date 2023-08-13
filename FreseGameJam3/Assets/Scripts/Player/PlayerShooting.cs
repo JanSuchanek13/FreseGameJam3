@@ -58,7 +58,7 @@ public class PlayerShooting : MonoBehaviour
         //für Animation
         //für Animation
         shootInputR = playerInput.Player.Shoot1.ReadValue<float>() == 1 && Time.time > nextShot1;
-        Debug.Log(playerInput.Player.Shoot1.ReadValue<float>());
+        //Debug.Log(playerInput.Player.Shoot1.ReadValue<float>());
         shootInputL = playerInput.Player.Shoot2.ReadValue<float>() == 1 && Time.time > nextShot2;
 
 
