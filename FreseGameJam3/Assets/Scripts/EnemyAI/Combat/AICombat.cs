@@ -14,11 +14,14 @@ public class AICombat : MonoBehaviour
     // Animation vars:
     Animator _animator;
     Animator _animatorWeapon;
-    
+
+    [Header("Do Not Touch:")]
+    public bool isAlive = true;
+
     private void OnEnable()
     {
-        _animator = transform.Find("G_KatziArmsShootingWalking").GetComponent<Animator>();
-        _animatorWeapon = transform.Find(weapon.name).GetComponent<Animator>();
+        _animator = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
+        _animatorWeapon = transform.Find("Geometry:/G_KatziArmsShootingWalking/ArmatureKatziArms/Bone/Bone.014/Bone.015/Bone.016/Bone.017/" + weapon.name + "/" + weapon.name).GetComponent<Animator>();
 
         // check which weapon is being carried:
         _weaponData = weapon.GetComponent<WeaponData>().data;
@@ -28,7 +31,7 @@ public class AICombat : MonoBehaviour
 
     private void Update()
     {
-        if(inRange && !_attacking)
+        if(inRange && !_attacking && isAlive)
         {
             StartCoroutine("Attack");
         }

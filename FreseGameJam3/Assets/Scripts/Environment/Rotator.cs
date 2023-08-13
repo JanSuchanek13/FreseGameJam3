@@ -20,7 +20,7 @@ public class Rotator : MonoBehaviour
 
     private void OnEnable()
     {
-        _rotPoint = _rotationPointTransform.position;
+        //_rotPoint = _rotationPointTransform.position;
     }
     void Update()
     {

@@ -20,9 +20,12 @@ public class AIMovement : MonoBehaviour
     // Animation vars:
     Animator _animator;
 
+    [Header("Do Not Touch:")]
+    public bool isAlive = true;
+
     private void OnEnable()
     {
-        _animator = transform.Find("G_KatziBody").GetComponent<Animator>();
+        _animator = transform.Find("Geometry:/G_KatziBody").GetComponent<Animator>();
 
         _agent = GetComponent<NavMeshAgent>();
         StartRandomWalking();
@@ -30,21 +33,30 @@ public class AIMovement : MonoBehaviour
 
     private void Update()
     {
-        if (enemySpotted)
+        if (isAlive)
         {
-            if (!canAttack) // cannot attack
+            if (enemySpotted)
             {
-                MoveIntoAttackRange();
-            }else // can attack
-            {
-                StopMoving();
+                if (!canAttack) // cannot attack
+                {
+                    MoveIntoAttackRange();
+                }
+                else // can attack
+                {
+                    StopMoving();
+                }
             }
-        }else if (!enemySpotted && !_hasDestination)
+            else if (!enemySpotted && !_hasDestination)
+            {
+                StartRandomWalking();
+            }
+            CheckForMovement();
+        }else
         {
-            StartRandomWalking();
+            // these may be redundant!
+            StopMoving();
+            CheckForMovement();
         }
-
-        CheckForMovement();
     }
 
     void StopMoving()

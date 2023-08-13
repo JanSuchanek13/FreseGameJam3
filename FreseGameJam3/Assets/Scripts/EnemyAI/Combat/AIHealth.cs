@@ -13,7 +13,7 @@ public class AIHealth : MonoBehaviour
     [SerializeField] AudioSource _deathSound;
     [SerializeField] ParticleSystem _takeDamageParticle;
 
-    GameObject _geometry;
+    //GameObject _geometry;
     GameObject _collider;
 
     //[Header("Effects relevant to Pagowicz")]
@@ -24,12 +24,15 @@ public class AIHealth : MonoBehaviour
     Animator _animatorBody;
     Animator _animatorArms;
 
+    [SerializeField] GameObject _helmet;
+    [SerializeField] float _helmetThrowingForceMultiplier = 3.0f;
+
     private void OnEnable()
     {
-        _animatorBody = transform.Find("G_KatziBody").GetComponent<Animator>();
-        _animatorArms = transform.Find("G_KatziArmsShootingWalking").GetComponent<Animator>();
+        _animatorBody = transform.Find("Geometry:/G_KatziBody").GetComponent<Animator>();
+        _animatorArms = transform.Find("Geometry:/G_KatziArmsShootingWalking").GetComponent<Animator>();
 
-        _geometry = GameObject.Find("Geometry:");
+        //_geometry = GameObject.Find("Geometry:");
         _collider = GameObject.Find("Collider:");
     }
     public void DecreaseLifePoints(float _damage)
@@ -84,14 +87,14 @@ public class AIHealth : MonoBehaviour
         {
             _takeDamageParticle.Play();
         }
-        //play Die Animation
 
-        // Destroy(gameObject);
-        //gameObject.SetActive(false); // this should be a better hotfix solution
-        //_geometry
-
+        LoseHelmet();
         _animatorArms.SetBool("isDying", true);
         _animatorBody.SetBool("isDying", true);
+
+        GetComponent<EnemyDetection>().isAlive = false;
+        GetComponent<AICombat>().isAlive = false;
+        GetComponent<AIMovement>().isAlive = false;
         _collider.SetActive(false);
     }
 
@@ -105,5 +108,19 @@ public class AIHealth : MonoBehaviour
             _renderer.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    void LoseHelmet()
+    {
+        _helmet.SetActive(true);
+        _helmet.transform.parent = null;
+
+        /*
+        _helmet.layer = LayerMask.NameToLayer("IgnoreCharacters");
+        _helmet.AddComponent<MeshCollider>();
+        _helmet.GetComponent<MeshCollider>().convex = true;
+        _helmet.AddComponent<Rigidbody>();*/
+
+        _helmet.GetComponent<Rigidbody>().AddForce(-transform.forward * _helmetThrowingForceMultiplier, ForceMode.Impulse);
     }
 }
