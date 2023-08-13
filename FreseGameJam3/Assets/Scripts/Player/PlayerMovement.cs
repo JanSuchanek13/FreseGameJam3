@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Verwende den CharacterController für die Bewegung
         controller.Move(inputMovement * Time.deltaTime * moveSpeed);
-
+        
         //inputMovement = new Vector3(playerInput.Player.Movement.ReadValue<Vector2>().x, 0, playerInput.Player.Movement.ReadValue<Vector2>().y);
         //transform.Translate(inputMovement * Time.deltaTime * moveSpeed, Space.World);
     }
