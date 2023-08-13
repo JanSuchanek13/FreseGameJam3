@@ -13,7 +13,10 @@ public class WeaponHandler : MonoBehaviour
     public GameObject Hand2;
 
     [Header("VFX")]
-    public ParticleSystem collectWeapon;
+    public ParticleSystem p_collectWeapon;
+
+    [Header("SFX")]
+    public AudioSource s_collectWeapon;
 
     private void Awake()
     {
@@ -22,7 +25,8 @@ public class WeaponHandler : MonoBehaviour
 
     public void SwitchWeapon(GameObject _newWeapon)
     {
-        collectWeapon.Play();
+        p_collectWeapon.Play();
+        s_collectWeapon.Play();
         ThrowOutWeapon(Weapon2);
         Weapon2 = Weapon1;
         Weapon1 = Instantiate(_newWeapon, transform.position, transform.rotation); //_newWeapon;
