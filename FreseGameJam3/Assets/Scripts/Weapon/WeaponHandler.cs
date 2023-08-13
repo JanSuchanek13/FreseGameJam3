@@ -12,6 +12,9 @@ public class WeaponHandler : MonoBehaviour
     public GameObject Hand1;
     public GameObject Hand2;
 
+    [Header("VFX")]
+    public ParticleSystem collectWeapon;
+
     private void Awake()
     {
         SetWeaponInHand();
