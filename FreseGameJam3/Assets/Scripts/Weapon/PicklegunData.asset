@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabName: Picklegun
   WeaponID: 2
   WeaponPrefab: {fileID: 7538698644893423484, guid: 972f31b79f4c98c47afb4756b575c572, type: 3}
-  BulletPrefab: {fileID: 2262963598735878972, guid: 0618b9e416b090e4d8eae54a23c4d004, type: 3}
+  BulletPrefab: {fileID: 2262963598735878972, guid: ce280766319ebce498ce1987aac903ac, type: 3}
   type: 1
   fireMode: 1
   range: 4
